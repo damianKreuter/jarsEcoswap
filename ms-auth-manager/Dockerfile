@@ -13,7 +13,7 @@ FROM openjdk:11.0.5-jre-slim
 #as builder
 COPY . /app
 EXPOSE 8080
-ADD ./build/libs/ms-auth-manager-0.0.1-SNAPSHOT.jar app.jar
+ADD ./ms-auth-manager-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
 
 
