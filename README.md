@@ -1,1 +1,1 @@
-# jarsEcoswap
+# ecoswap-ms-auth-manager
