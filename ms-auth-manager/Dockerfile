@@ -8,12 +8,12 @@
 #FROM 356317836475.dkr.ecr.us-east-1.amazonaws.com/openjdk:11.0.5-jre-slim
 
 
-#FROM openjdk:11.0.5-jre-slim
-FROM openjdk:11.0.5-jre-slim 
+FROM openjdk:22-jdk-bookworm
+#FROM openjdk:17-oracle
 #as builder
 COPY . /app
 EXPOSE 8080
-ADD ./ms-auth-manager-0.0.1-SNAPSHOT.jar app.jar
+ADD ./ms-portal-v1-0.0.2-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
 
 
