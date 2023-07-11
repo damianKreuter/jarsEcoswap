@@ -1,7 +1,7 @@
 version: "3"
 services:
   app:
-    image: ms-portal
+    image: ms-users
     container_name: ecoswap-container
     build: ./
     restart: always
