@@ -13,7 +13,7 @@ FROM openjdk:22-jdk-bookworm
 #as builder
 COPY . /app
 EXPOSE 8080
-ADD ./ms-portal-v1-0.0.2-SNAPSHOT.jar app.jar
+ADD ./ms-portal-v1-0.0.3-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
 
 
