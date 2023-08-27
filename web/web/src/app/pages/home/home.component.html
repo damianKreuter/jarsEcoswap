@@ -1,0 +1,11 @@
+<app-header></app-header>
+
+<ngb-carousel *ngIf="images" [interval]="3500">
+	<ng-template ngbSlide *ngFor="let img of images">
+		<div class="picsum-img-wrapper">
+			<img [src]="img"/>
+		</div>
+		<div class="carousel-caption">
+		</div>
+	</ng-template>
+</ngb-carousel>
