@@ -14,7 +14,7 @@ services:
       - PORT=8085
   ms-users:
     image: ms-users
-    container_name: ms-user-container
+    container_name: ms-user-container 
     build: 
       context: ms-users
       dockerfile: ./Dockerfile
