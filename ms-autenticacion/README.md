@@ -1,3 +1,0 @@
-# ecoswap-ms-auth-manager
-
-
