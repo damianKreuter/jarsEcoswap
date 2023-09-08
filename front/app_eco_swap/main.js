@@ -1908,7 +1908,7 @@ __webpack_require__.r(__webpack_exports__);
 // environment.ts (Development)
 const environment = {
   production: false,
-  apiUrl: 'http://localhost:'
+  apiUrl: 'http://ec2-3-93-54-229.compute-1.amazonaws.com:'
 };
 
 /***/ }),
