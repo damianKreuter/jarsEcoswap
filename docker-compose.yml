@@ -24,3 +24,15 @@ services:
     environment:
       - HOST=0.0.0.0
       - PORT=8080
+  front:
+    image: front
+    container_name: front-ecoswap
+    build:
+      context: front
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+    - "4200:4200"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=4200
