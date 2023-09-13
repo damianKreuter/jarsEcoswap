@@ -1,0 +1,26 @@
+version: "3"
+services:
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./frontend/data/certbot/conf:/etc/letsencrypt
+      - ./frontend/data/certbot/www:/var/www/certbot
+
+  nginx-front:
+    image: nginx-front
+    container_name: front-ecoswap
+    build:
+      context: front
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - "81:81"
+      - "443:443"
+    expose:
+      - "81"
+      - "443"
+    networks:
+      - default
+ #   environment:
+ #     - HOST=0.0.0.0
+ #     - PORT=80
