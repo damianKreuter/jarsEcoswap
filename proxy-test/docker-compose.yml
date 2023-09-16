@@ -111,3 +111,26 @@ url.host=https://d2j0szkenvy8hz.cloudfront.net
 
 
 keytool -genkey -alias spring-https -storetype JKS -keyalg RSA -keysize 2048 -validity 365 -keystore javatechie.jks
+
+
+docker rmi 0fefe6aef858 
+docker rmi bb466c60dcde 
+docker rmi e6730902b1c6 
+docker rmi 1ba89314753c 
+docker rmi 5da81306eb4a 
+docker rmi ddf53f21197f 
+docker rmi c75748ba18e4 
+docker rmi 7445020ba61d 
+docker rmi 8c9f173f1424 
+docker rmi b30be8ede839 
+docker rmi 0bea55a73040 
+docker rmi 285472728efc 
+
+
+
+certbot certonly \
+    -d ec2-54-221-135-51.compute-1.amazonaws.com \
+    --noninteractive \
+    --standalone \
+    --agree-tos \
+    --register-unsafely-without-email
