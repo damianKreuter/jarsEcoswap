@@ -24,3 +24,90 @@ services:
  #   environment:
  #     - HOST=0.0.0.0
  #     - PORT=80
+ 
+ 
+ 
+ 
+git add docker-compose.yml
+git add front-proxy/Dockerfile
+git add front-proxy/app_eco_swap/347.085c4169cdb50209.js
+git add front-proxy/app_eco_swap/347.6b626a043b985636.js
+git add front-proxy/app_eco_swap/368.214fb6e5d5a67835.js
+git add front-proxy/app_eco_swap/368.c1fe40d979723086.js
+git add front-proxy/app_eco_swap/3rdpartylicenses.txt
+git add front-proxy/app_eco_swap/423.b1d013c91dc78b63.js
+git add front-proxy/app_eco_swap/423.b50ed02c1438e6c2.js
+git add front-proxy/app_eco_swap/555.28d0db9b2272e3ce.js
+git add front-proxy/app_eco_swap/555.662d73277b8c1c2b.js
+git add front-proxy/app_eco_swap/679.aae1c064e4d79599.js
+git add front-proxy/app_eco_swap/679.ec3f8aa72efcbc17.js
+git add front-proxy/app_eco_swap/69.6d4f7a86859c1e05.js
+git add front-proxy/app_eco_swap/69.8a80c9ab386f5770.js
+git add front-proxy/app_eco_swap/692.0b6c6e00d29a67e2.js
+git add front-proxy/app_eco_swap/692.db97cc6b03e73cef.js
+git add front-proxy/app_eco_swap/775.3bb44c4ee75ffb71.js
+git add front-proxy/app_eco_swap/775.61424c82bcdc72a3.js
+git add front-proxy/app_eco_swap/828.b6937e65865e234b.js
+git add front-proxy/app_eco_swap/828.f7954bbd306b2eb6.js
+git add front-proxy/app_eco_swap/841.0666ce0f4a8cf2d2.js
+git add front-proxy/app_eco_swap/841.c472b719af5b1f28.js
+git add front-proxy/app_eco_swap/87.a7f355116996cef3.js
+git add front-proxy/app_eco_swap/87.bc7533d56a97a220.js
+git add front-proxy/app_eco_swap/908.2f526b45e09a6d35.js
+git add front-proxy/app_eco_swap/908.6afb6e8714d00bed.js
+git add front-proxy/app_eco_swap/939.5de4ff4d0b2b9d88.js
+git add front-proxy/app_eco_swap/939.bc2000c09464fc87.js
+git add front-proxy/app_eco_swap/981.a4ab41f43be8e203.js
+git add front-proxy/app_eco_swap/981.fa64fb48ace59f7f.js
+git add front-proxy/app_eco_swap/assets/TEST_abrigos.jpg
+git add front-proxy/app_eco_swap/assets/TEST_juguetes.png
+git add front-proxy/app_eco_swap/assets/background-login.webp
+git add front-proxy/app_eco_swap/assets/banners-mobile/01.jpg
+git add front-proxy/app_eco_swap/assets/banners-mobile/02.jpg
+git add front-proxy/app_eco_swap/assets/banners-mobile/03.jpg
+git add front-proxy/app_eco_swap/assets/banners-mobile/04.jpg
+git add front-proxy/app_eco_swap/assets/banners/01.jpg
+git add front-proxy/app_eco_swap/assets/banners/02.jpg
+git add front-proxy/app_eco_swap/assets/banners/03.jpg
+git add front-proxy/app_eco_swap/assets/banners/04.jpg
+git add front-proxy/app_eco_swap/assets/bootstrap.scss
+git add front-proxy/app_eco_swap/assets/fundacion.png
+git add front-proxy/app_eco_swap/assets/login.png
+git add front-proxy/app_eco_swap/assets/logo_green.png
+git add front-proxy/app_eco_swap/assets/logo_green_small.png
+git add front-proxy/app_eco_swap/assets/logo_white.png
+git add front-proxy/app_eco_swap/assets/logo_white_small.png
+git add front-proxy/app_eco_swap/assets/persona.png
+git add front-proxy/app_eco_swap/assets/test_prop/alim_no_perec.jpg
+git add front-proxy/app_eco_swap/assets/test_prop/gatito1.jpeg
+git add front-proxy/app_eco_swap/common.1d02675a8d4fa45f.js
+git add front-proxy/app_eco_swap/common.9f2eafdd6ab557b8.js
+git add front-proxy/app_eco_swap/favicon.ico
+git add front-proxy/app_eco_swap/fundacion.83cbf2a177069f0a.png
+git add front-proxy/app_eco_swap/index.html
+git add front-proxy/app_eco_swap/login.1b89235f5b0659f2.png
+git add front-proxy/app_eco_swap/main.1bc1d1a4deca4f57.js
+git add front-proxy/app_eco_swap/main.d7a84d89cbae512f.js
+git add front-proxy/app_eco_swap/persona.5bfdedb8d26ee878.png
+git add front-proxy/app_eco_swap/polyfills.926473b94e3c4799.js
+git add front-proxy/app_eco_swap/runtime.32abfd92891081c1.js
+git add front-proxy/app_eco_swap/runtime.97cf57afbcb594a5.js
+git add front-proxy/app_eco_swap/styles.9d2de6d1038800ed.css
+git add front-proxy/default.conf
+
+
+docker rmi 9b625372b50c
+docker rmi 264f8b78e662
+docker rmi 1943eebd51b2
+docker rmi 7f2b0dc3832d
+docker rmi 6e2c89ca5c5f
+docker rmi 4ea4198664a0
+docker rmi 7c3114f9ebc8
+docker rmi 57b40cad8f13
+docker rmi 47774b3a5321
+docker rmi 30df97b49ac7
+
+url.host=https://d2j0szkenvy8hz.cloudfront.net
+
+
+keytool -genkey -alias spring-https -storetype JKS -keyalg RSA -keysize 2048 -validity 365 -keystore javatechie.jks
