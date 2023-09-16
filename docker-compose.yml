@@ -1,5 +1,30 @@
 version: "3"
 services:
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./frontend/data/certbot/conf:/etc/letsencrypt
+      - ./frontend/data/certbot/www:/var/www/certbot
+
+  nginx-front:
+    image: nginx-front
+    container_name: front-ecoswap
+    build:
+      context: front
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    expose:
+      - "80"
+      - "443"
+    networks:
+      - default
+ #   environment:
+ #     - HOST=0.0.0.0
+ #     - PORT=80
+
   ms-aunteticacion:
     image: ms-autenticacion
     container_name: ms-autenticacion-container
@@ -12,6 +37,7 @@ services:
     environment:
       - HOST=0.0.0.0
       - PORT=8085
+      
   ms-users:
     image: ms-users
     container_name: ms-user-container 
@@ -24,15 +50,3 @@ services:
     environment:
       - HOST=0.0.0.0
       - PORT=8080
-  front:
-    image: front
-    container_name: front-ecoswap
-    build:
-      context: front
-      dockerfile: ./Dockerfile
-    restart: always
-    ports:
-    - "80:80"
-    environment:
-      - HOST=0.0.0.0
-      - PORT=80
