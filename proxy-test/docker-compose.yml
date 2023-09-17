@@ -52,12 +52,15 @@ services:
       context: ms-autenticacion
       dockerfile: ./Dockerfile
     restart: always
-    ports:
-      - "8085:8085"
     expose:
       - "8085"
-    networks:
-      - default
+    depends_on:
+      - nginx-proxy
+      - letsencrypt
+    environment:
+      - VIRTUAL_HOST=ecoswapp.com,www.ecoswapp.com
+      - LETSENCRYPT_HOST=ecoswapp.com,www.ecoswapp.com
+      - LETSENCRYPT_EMAIL=webmaster@ecoswapp.com
 volumes: 
   certs:
   html:
