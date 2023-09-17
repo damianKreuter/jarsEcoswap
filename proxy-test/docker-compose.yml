@@ -52,6 +52,8 @@ services:
       context: ms-autenticacion
       dockerfile: ./Dockerfile
     restart: always
+    ports:
+      - "8085:8085"
     expose:
       - "8085"
     networks:
