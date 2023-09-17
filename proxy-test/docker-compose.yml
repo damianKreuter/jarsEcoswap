@@ -52,6 +52,10 @@ services:
       context: ms-autenticacion
       dockerfile: ./Dockerfile
     restart: always
+    depends_on:
+      - nginx-web
+    ports:
+      - "8085:8085"
     expose:
       - "8085"
     networks:
