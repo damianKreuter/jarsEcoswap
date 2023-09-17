@@ -59,8 +59,6 @@ services:
       - letsencrypt
     environment:
       - VIRTUAL_HOST=ecoswapp.com,www.ecoswapp.com
-      - LETSENCRYPT_HOST=ecoswapp.com,www.ecoswapp.com
-      - LETSENCRYPT_EMAIL=webmaster@ecoswapp.com
 volumes: 
   certs:
   html:
