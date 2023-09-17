@@ -60,6 +60,10 @@ services:
       - "8085"
     networks:
       - default
+    environment:
+      - VIRTUAL_HOST=ecoswapp.com,www.ecoswapp.com
+      - LETSENCRYPT_HOST=ecoswapp.com,www.ecoswapp.com
+      - LETSENCRYPT_EMAIL=webmaster@ecoswapp.com
 
   back-users:
     image: back-users
