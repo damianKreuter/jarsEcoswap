@@ -60,6 +60,21 @@ services:
       - "8085"
     networks:
       - default
+
+  back-users:
+    image: back-users
+    container_name: back-user-container 
+    build: 
+      context: ms-users
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+    networks:
+      - default
+
 volumes: 
   certs:
   html:
