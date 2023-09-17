@@ -29,8 +29,8 @@ services:
       - acme:/etc/acme.sh
 
   nginx-web:
-    image: nginx-front
-    container_name: front-ecoswap
+    image: ecoswap-front
+    container_name: web-ecoswap
     build:
       context: front-angular
       dockerfile: ./Dockerfile
