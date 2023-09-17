@@ -1,10 +1,32 @@
 version: "3"
 services:
-  certbot:
-    image: certbot/certbot:latest
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
     volumes:
-      - ./frontend/data/certbot/conf:/etc/letsencrypt
-      - ./frontend/data/certbot/www:/var/www/certbot
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - certs:/etc/nginx/certs:ro
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - acme:/etc/acme.sh
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    restart: always
+    environment:
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+    volumes:
+      - certs:/etc/nginx/certs:rw
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - acme:/etc/acme.sh
 
   nginx-web:
     image: nginx-front
@@ -15,12 +37,13 @@ services:
     restart: always
     ports:
       - "80:80"
-      - "443:443"
-    expose:
-      - "80"
-      - "443"
-    networks:
-      - default
+    depends_on:
+      - nginx-proxy
+      - letsencrypt
+    environment:
+      - VIRTUAL_HOST=ecoswapp.com,www.ecoswapp.com
+      - LETSENCRYPT_HOST=ecoswapp.com,www.ecoswapp.com
+      - LETSENCRYPT_EMAIL=webmaster@ecoswapp.com
 
   back-aunteticacion:
     image: back-aunteticacion
@@ -35,3 +58,8 @@ services:
       - "8085"
     networks:
       - default
+volumes: 
+  certs:
+  html:
+  vhostd:
+  acme:
