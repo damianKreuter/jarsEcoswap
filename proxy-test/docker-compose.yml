@@ -54,16 +54,14 @@ services:
     restart: always
     depends_on:
       - nginx-web
+    volumes:
+      - certs:/etc/nginx/certs:ro
     ports:
       - "8085:8085"
     expose:
       - "8085"
     networks:
       - default
-    environment:
-      - VIRTUAL_HOST=ecoswapp.com,www.ecoswapp.com
-      - LETSENCRYPT_HOST=ecoswapp.com,www.ecoswapp.com
-      - LETSENCRYPT_EMAIL=webmaster@ecoswapp.com
 
   back-users:
     image: back-users
@@ -72,6 +70,8 @@ services:
       context: ms-users
       dockerfile: ./Dockerfile
     restart: always
+    volumes:
+      - certs:/etc/nginx/certs:ro
     ports:
       - "8080:8080"
     expose:
