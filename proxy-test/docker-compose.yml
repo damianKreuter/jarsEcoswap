@@ -4,7 +4,7 @@ services:
   nginx-proxy:
     image: jwilder/nginx-proxy
     restart: always
-    ports:
+    port:
       - "80:80"
       - "443:443"
     volumes:
