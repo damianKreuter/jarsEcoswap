@@ -4,7 +4,7 @@ services:
   nginx-proxy:
     image: jwilder/nginx-proxy
     restart: always
-    port:
+    ports:
       - "80:80"
       - "443:443"
     volumes:
@@ -35,10 +35,8 @@ services:
       context: front-angular
       dockerfile: ./Dockerfile
     restart: always
-    port:
-      - "4200:4200"
     expose:
-      - "80:80"
+      - "80"
     depends_on:
       - nginx-proxy
       - letsencrypt
