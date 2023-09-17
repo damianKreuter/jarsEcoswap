@@ -54,11 +54,8 @@ services:
     restart: always
     expose:
       - "8085"
-    depends_on:
-      - nginx-proxy
-      - letsencrypt
-    environment:
-      - VIRTUAL_HOST=ecoswapp.com,www.ecoswapp.com
+    networks:
+      - default
 volumes: 
   certs:
   html:
