@@ -1,7 +1,7 @@
 version: "3"
 services:
 
-  nginx-proxy:
+  test-nginx-proxy:
     image: jwilder/nginx-proxy
     restart: always
     ports:
@@ -16,7 +16,7 @@ services:
     labels:
       - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
 
-  letsencrypt:
+  test-letsencrypt:
     image: jrcs/letsencrypt-nginx-proxy-companion
     restart: always
     environment:
@@ -28,7 +28,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - acme:/etc/acme.sh
 
-  nginx-web:
+  test-nginx-web:
     image: ecoswap-front
     container_name: web-ecoswap
     build:
@@ -45,7 +45,7 @@ services:
       - LETSENCRYPT_HOST=ecoswapp.com,www.ecoswapp.com
       - LETSENCRYPT_EMAIL=webmaster@ecoswapp.com
 
-  back-aunteticacion:
+  test-back-aunteticacion:
     image: back-aunteticacion
     container_name: back-aunteticacion-container
     build: 
@@ -55,7 +55,7 @@ services:
     depends_on:
       - nginx-web
     volumes:
-      - certs:/certs:ro
+      - /etc/letsencrypt/live/ecoswapp.com/keystore.p12:/etc/letsencrypt/live/ecoswapp.com/keystore.p12:ro
     ports:
       - "8085:8085"
     expose:
@@ -63,7 +63,7 @@ services:
     networks:
       - default
 
-  back-users:
+  test-back-users:
     image: back-users
     container_name: back-user-container 
     build: 
@@ -71,7 +71,7 @@ services:
       dockerfile: ./Dockerfile
     restart: always
     volumes:
-      - certs:/certs:ro
+      - /etc/letsencrypt/live/ecoswapp.com/keystore.p12:/etc/letsencrypt/live/ecoswapp.com/keystore.p12:ro
     ports:
       - "8080:8080"
     expose:
