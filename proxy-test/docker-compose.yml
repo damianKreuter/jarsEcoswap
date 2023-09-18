@@ -14,13 +14,13 @@ services:
       - html:/usr/share/nginx/html
       - acme:/etc/acme.sh
     labels:
-      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.test-nginx_proxy
 
   test-letsencrypt:
     image: jrcs/letsencrypt-nginx-proxy-companion
     restart: always
     environment:
-      - NGINX_PROXY_CONTAINER=nginx-proxy
+      - NGINX_PROXY_CONTAINER=test-nginx-proxy
     volumes:
       - certs:/etc/nginx/certs:rw
       - vhostd:/etc/nginx/vhost.d
@@ -38,8 +38,8 @@ services:
     expose:
       - "80"
     depends_on:
-      - nginx-proxy
-      - letsencrypt
+      - test-nginx-proxy
+      - test-letsencrypt
     environment:
       - VIRTUAL_HOST=ecoswapp.com,www.ecoswapp.com
       - LETSENCRYPT_HOST=ecoswapp.com,www.ecoswapp.com
@@ -53,7 +53,7 @@ services:
       dockerfile: ./Dockerfile
     restart: always
     depends_on:
-      - nginx-web
+      - test-nginx-web
     volumes:
       - /etc/letsencrypt/live/ecoswapp.com/keystore.p12:/etc/letsencrypt/live/ecoswapp.com/keystore.p12:ro
     ports:
@@ -70,6 +70,8 @@ services:
       context: ms-users
       dockerfile: ./Dockerfile
     restart: always
+    depends_on:
+      - test-nginx-web
     volumes:
       - /etc/letsencrypt/live/ecoswapp.com/keystore.p12:/etc/letsencrypt/live/ecoswapp.com/keystore.p12:ro
     ports:
