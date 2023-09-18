@@ -1,7 +1,7 @@
 version: "3"
 services:
 
-  test-nginx-proxy:
+  nginx-proxy:
     image: jwilder/nginx-proxy
     restart: always
     ports:
@@ -16,7 +16,7 @@ services:
     labels:
       - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
 
-  test-letsencrypt:
+  letsencrypt:
     image: jrcs/letsencrypt-nginx-proxy-companion
     restart: always
     environment:
@@ -28,7 +28,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - acme:/etc/acme.sh
 
-  test-nginx-web:
+  nginx-web:
     image: ecoswap-front
     container_name: web-ecoswap
     build:
@@ -45,7 +45,7 @@ services:
       - LETSENCRYPT_HOST=ecoswapp.com,www.ecoswapp.com
       - LETSENCRYPT_EMAIL=webmaster@ecoswapp.com
 
-  test-back-aunteticacion:
+  back-aunteticacion:
     image: back-aunteticacion
     container_name: back-aunteticacion-container
     build: 
@@ -63,7 +63,7 @@ services:
     networks:
       - default
 
-  test-back-users:
+  back-users:
     image: back-users
     container_name: back-user-container 
     build: 
