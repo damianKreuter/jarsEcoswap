@@ -7,6 +7,10 @@ services:
     ports:
       - "80:80"
       - "443:443"
+      - "8080:8080"
+      - "8085:8085"
+      - "8880:8880" #SSL MS-USERS
+      - "8885:8885" #SSL MS-AUTENTICACION
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - certs:/etc/nginx/certs:ro
@@ -55,9 +59,7 @@ services:
     depends_on:
       - nginx-web
     volumes:
-      - /etc/letsencrypt/live/ecoswapp.com/keystore.p12:/etc/letsencrypt/live/ecoswapp.com/keystore.p12:ro
-    ports:
-      - "8085:8085"
+      - ./keystore.p12:/keystore.p12
     expose:
       - "8085"
     networks:
@@ -71,9 +73,7 @@ services:
       dockerfile: ./Dockerfile
     restart: always
     volumes:
-      - /etc/letsencrypt/live/ecoswapp.com/keystore.p12:/etc/letsencrypt/live/ecoswapp.com/keystore.p12:ro
-    ports:
-      - "8080:8080"
+      - ./keystore.p12:/keystore.p12
     expose:
       - "8080"
     networks:
@@ -84,3 +84,30 @@ volumes:
   html:
   vhostd:
   acme:
+
+
+
+
+
+  /home/ubuntu/ecoswap/jarsEcoswap/cert/ecoswapp.com/keystore.p12
+
+
+
+cp -R /home/ubuntu/ecoswap/jarsEcoswap/cert/ecoswapp.com/keystore.p12 /home/ubuntu/ecoswap/jarsEcoswap/proxy-test
+
+openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 
+
+docker rmi 7c289fe3bb2e
+docker rmi fa38fdc2b4be
+docker rmi 66af2ec269e6
+docker rmi a6ea77c989ae
+docker rmi d37ab592f70b
+docker rmi 433dbc17191a
+docker rmi 01c5a79cd37e
+
+
+docker rm c8df1f58ae37
+docker rm 4d9250491dd8
+docker rm 5039084e00b1
+docker rm 31781b942e39
+docker rm 6e02a1f80a61
