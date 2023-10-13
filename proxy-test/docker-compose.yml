@@ -86,7 +86,7 @@ services:
     restart: always
     volumes:
       - ./keystore.p12:/keystore.p12
-    ports:
+    port:
       - "8084:8084"
     environment:
       - HOST=0.0.0.0
