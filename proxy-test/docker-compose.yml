@@ -69,6 +69,8 @@ services:
       context: ms-users
       dockerfile: ./Dockerfile
     restart: always
+    depends_on:
+      - back-aunteticacion
     volumes:
       - ./keystore.p12:/keystore.p12
     ports:
@@ -84,6 +86,8 @@ services:
       context: ms-transacciones
       dockerfile: ./Dockerfile
     restart: always
+    depends_on:
+      - back-users
     volumes:
       - ./keystore.p12:/keystore.p12
     ports:
