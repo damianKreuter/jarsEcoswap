@@ -79,23 +79,6 @@ services:
       - HOST=0.0.0.0
       - PORT=8080
 
-  back-transacciones:
-    image: back-transacciones
-    container_name: back-transacciones-container
-    build:
-      context: ms-transacciones
-      dockerfile: ./Dockerfile
-    restart: always
-    depends_on:
-      - back-users
-    volumes:
-      - ./keystore.p12:/keystore.p12
-    ports:
-      - "8084:8084"
-    environment:
-      - HOST=0.0.0.0
-      - PORT=8084
-
 volumes: 
   certs:
   html:
