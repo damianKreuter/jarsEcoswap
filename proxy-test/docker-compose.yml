@@ -70,7 +70,7 @@ services:
       dockerfile: ./Dockerfile
     restart: always
     depends_on:
-      - back-aunteticacion
+      - nginx-web
     volumes:
       - ./keystore.p12:/keystore.p12
     ports:
